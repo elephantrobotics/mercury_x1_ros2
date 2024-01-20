@@ -1,0 +1,63 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/u20-ros2/colcon_ws/install/mypalletizer_interfaces/include/**",
+        "/home/u20-ros2/colcon_ws/install/mycobot_interfaces/include/**",
+        "/home/u20-ros2/colcon_ws/install/mecharm_interfaces/include/**",
+        "/opt/ros/foxy/include/**",
+        "/home/u20-ros2/mercury_x1_ros2/src/depend/serial_ros2/include/**",
+        "/home/u20-ros2/mercury_x1_ros2/src/navigation2-galactic/nav2_amcl/include/**",
+        "/home/u20-ros2/mercury_x1_ros2/src/navigation2-galactic/nav2_behavior_tree/include/**",
+        "/home/u20-ros2/mercury_x1_ros2/src/navigation2-galactic/nav2_bt_navigator/include/**",
+        "/home/u20-ros2/mercury_x1_ros2/src/navigation2-galactic/nav2_controller/include/**",
+        "/home/u20-ros2/mercury_x1_ros2/src/navigation2-galactic/nav2_core/include/**",
+        "/home/u20-ros2/mercury_x1_ros2/src/navigation2-galactic/nav2_costmap_2d/include/**",
+        "/home/u20-ros2/mercury_x1_ros2/src/navigation2-galactic/nav2_dwb_controller/costmap_queue/include/**",
+        "/home/u20-ros2/mercury_x1_ros2/src/navigation2-galactic/nav2_dwb_controller/dwb_core/include/**",
+        "/home/u20-ros2/mercury_x1_ros2/src/navigation2-galactic/nav2_dwb_controller/dwb_critics/include/**",
+        "/home/u20-ros2/mercury_x1_ros2/src/navigation2-galactic/nav2_dwb_controller/dwb_plugins/include/**",
+        "/home/u20-ros2/mercury_x1_ros2/src/navigation2-galactic/nav2_dwb_controller/nav_2d_utils/include/**",
+        "/home/u20-ros2/mercury_x1_ros2/src/navigation2-galactic/nav2_lifecycle_manager/include/**",
+        "/home/u20-ros2/mercury_x1_ros2/src/navigation2-galactic/nav2_map_server/include/**",
+        "/home/u20-ros2/mercury_x1_ros2/src/navigation2-galactic/nav2_navfn_planner/include/**",
+        "/home/u20-ros2/mercury_x1_ros2/src/navigation2-galactic/nav2_planner/include/**",
+        "/home/u20-ros2/mercury_x1_ros2/src/navigation2-galactic/nav2_recoveries/include/**",
+        "/home/u20-ros2/mercury_x1_ros2/src/navigation2-galactic/nav2_regulated_pure_pursuit_controller/include/**",
+        "/home/u20-ros2/mercury_x1_ros2/src/navigation2-galactic/nav2_rotation_shim_controller/include/**",
+        "/home/u20-ros2/mercury_x1_ros2/src/navigation2-galactic/nav2_rviz_plugins/include/**",
+        "/home/u20-ros2/mercury_x1_ros2/src/navigation2-galactic/nav2_smac_planner/include/**",
+        "/home/u20-ros2/mercury_x1_ros2/src/navigation2-galactic/nav2_theta_star_planner/include/**",
+        "/home/u20-ros2/mercury_x1_ros2/src/navigation2-galactic/nav2_util/include/**",
+        "/home/u20-ros2/mercury_x1_ros2/src/navigation2-galactic/nav2_voxel_grid/include/**",
+        "/home/u20-ros2/mercury_x1_ros2/src/navigation2-galactic/nav2_waypoint_follower/include/**",
+        "/home/u20-ros2/mercury_x1_ros2/src/ros2_astra_camera/astra_camera/include/**",
+        "/home/u20-ros2/mercury_x1_ros2/src/turn_on_wheeltec_robot/include/**",
+        "/home/u20-ros2/mercury_x1_ros2/src/usb_cam/include/**",
+        "/home/u20-ros2/mercury_x1_ros2/src/wheeltec_joy/include/**",
+        "/home/u20-ros2/mercury_x1_ros2/src/wheeltec_lidar_ros2/LDlidar/ldlidar06/include/**",
+        "/home/u20-ros2/mercury_x1_ros2/src/wheeltec_lidar_ros2/LDlidar/ldlidar14/include/**",
+        "/home/u20-ros2/mercury_x1_ros2/src/wheeltec_lidar_ros2/LSlidar/lslidar_driver/include/**",
+        "/home/u20-ros2/mercury_x1_ros2/src/wheeltec_lidar_ros2/LSlidar/lslidar_driver_n10p/include/**",
+        "/home/u20-ros2/mercury_x1_ros2/src/wheeltec_robot_msg/include/**",
+        "/home/u20-ros2/mercury_x1_ros2/src/wheeltec_robot_rtab/include/**",
+        "/home/u20-ros2/mercury_x1_ros2/src/wheeltec_robot_slam/openslam_gmapping/include/**",
+        "/home/u20-ros2/mercury_x1_ros2/src/wheeltec_robot_slam/slam_gmapping/include/**",
+        "/home/u20-ros2/mercury_x1_ros2/src/wheeltec_robot_slam/wheeltec_cartographer/include/**",
+        "/home/u20-ros2/mercury_x1_ros2/src/wheeltec_robot_slam/wheeltec_slam_toolbox/include/**",
+        "/home/u20-ros2/mercury_x1_ros2/src/wheeltec_rviz2/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
