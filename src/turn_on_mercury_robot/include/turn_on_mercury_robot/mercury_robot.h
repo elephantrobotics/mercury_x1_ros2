@@ -1,6 +1,6 @@
 
-#ifndef __WHEELTEC_ROBOT_H_
-#define __WHEELTEC_ROBOT_H_
+#ifndef __mercury_ROBOT_H_
+#define __mercury_ROBOT_H_
 
 #include <memory>
 #include <inttypes.h>
@@ -149,7 +149,7 @@ class turn_on_robot : public rclcpp::Node
 		void Publish_Odom();      //Pub the speedometer topic //发布里程计话题
 		serial::Serial Stm32_Serial; //Declare a serial object //声明串口对象 
 		//explicit turn_on_robot(
-		 // const std::string & name = "wheeltec_robot");
+		 // const std::string & name = "mercury_robot");
 
 	private:
 
@@ -172,8 +172,8 @@ class turn_on_robot : public rclcpp::Node
 
                 rclcpp::Publisher<std_msgs::msg::Float32>::SharedPtr test_publisher;         // CHANGE
 
-                rclcpp::Publisher<wheeltec_robot_msg::msg::Data>::SharedPtr robotpose_publisher;         // CHANGE
-                rclcpp::Publisher<wheeltec_robot_msg::msg::Data>::SharedPtr robotvel_publisher;         // CHANGE
+                rclcpp::Publisher<mercury_robot_msg::msg::Data>::SharedPtr robotpose_publisher;         // CHANGE
+                rclcpp::Publisher<mercury_robot_msg::msg::Data>::SharedPtr robotvel_publisher;         // CHANGE
                 rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr tf_pub_;
 
                 std::shared_ptr<tf2_ros::TransformBroadcaster> tf_bro;

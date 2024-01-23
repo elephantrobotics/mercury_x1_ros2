@@ -1,6 +1,6 @@
 from setuptools import setup
 
-package_name = 'wheeltec_robot_keyboard'
+package_name = 'mercury_x1_control'
 
 setup(
     name=package_name,
@@ -20,8 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'wheeltec_keyboard = wheeltec_robot_keyboard.wheeltec_keyboard:main',
-            'slider_control = wheeltec_robot_keyboard.slider_control:main',
+            'mercury_keyboard = mercury_x1_control.mercury_keyboard:main',
+            'slider_control = mercury_x1_control.slider_control:main',
         ],
     },
 )
