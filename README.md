@@ -13,6 +13,9 @@ $ source install/setup.bash
 If you only compile “turn_on_mercury_robot“, you need to execute the command:
 $ colcon build --packages-select turn_on_mercury_robot
 ```
+# 一、Mercury Seven Axis
+
+>> **Note**:  Make sure the machine is powered on and enabled before use
 
 ## Bottom car keyboard control
 
@@ -48,7 +51,45 @@ $ ros2 run mercury_x1_control slider_control
 $ ros2 run mercury_x1_control mercury_keyboard
 ```
 
-## ROS2 常用指令汇总：
+# 二、Mercury Turing Six Axis
+
+>> **Note**:  Make sure the machine is powered on and enabled before use
+
+## Bottom car keyboard control
+
+**1. First start the car's underlying communication program and map building:**
+
+```bash
+$ ros2 launch slam_gmapping slam_gmapping_turing.launch.py
+```
+
+**2. Then start the keyboard control program:**
+
+```bash
+$ ros2 run mercury_x1_control mercury_keyboard
+```
+
+## Chassis car + upper body robotic arm control
+
+**1. First start the car's underlying communication program and map building:**
+
+```bash
+$ ros2 launch slam_gmapping slam_gmapping_turing.launch.py
+```
+
+**2. Then Turn on upper body robotic arm control:**
+
+```bash
+$ ros2 run mercury_x1_control slider_control_turing
+```
+
+**3. Finally start the keyboard control program:**
+
+```bash
+$ ros2 run mercury_x1_control mercury_keyboard
+```
+
+# ROS2 常用指令汇总：
 
 ```bash
 单独编译功能包：
@@ -62,10 +103,16 @@ NFS挂载
 sudo mount -t nfs 192.168.0.100:/home/er/mercury_x1_ros2/ /mnt
 
 1、打开机器人底盘
+# Mercury Seven Axis
 ros2 launch turn_on_mercury_robot turn_on_mercury_robot.launch.py
+# Mercury Six Axis
+ros2 launch turn_on_mercury_robot turn_on_mercury_robot_turing.launch.py
 
 2、打开底盘控制
+# Mercury Seven Axis
 ros2 launch turn_on_mercury_robot turn_on_mercury_robot.launch.py
+# Mercury Seven Axis
+ros2 launch turn_on_mercury_robot turn_on_mercury_robot_turing.launch.py
 
 3、打开相机
 ros2 launch turn_on_mercury_robot mercury_camera.launch.py
@@ -88,7 +135,10 @@ ros2 launch simple_follower_ros2 visual_follower.launch.py
 
 7、2D建图
 ①使用gmapping建图
+# Mercury Seven Axis
 ros2 launch slam_gmapping slam_gmapping.launch.py
+# Mercury Six Axis
+ros2 launch slam_gmapping slam_gmapping_turing.launch.py
 
 ②使用slam_toolbox建图
 ros2 launch mercury_slam_toolbox online_async.launch.py
@@ -120,10 +170,16 @@ ros2 launch mercury_joy mercury_joy.launch.py
 
 14、底盘小车+上半身机械臂控制
 ①使用gmapping建图
+# Mercury Seven Axis
 ros2 launch slam_gmapping slam_gmapping.launch.py
+# Mercury Six Axis
+ros2 launch slam_gmapping slam_gmapping_turing.launch.py
 
 ②打开上半身机械臂控制
+# Mercury Seven Axis
 ros2 run mercury_x1_control slider_control
+# Mercury Six Axis
+ros2 run mercury_x1_control slider_control_turing
 
 ③打开底盘小车键盘控制
 ros2 run mercury_x1_control mercury_keyboard

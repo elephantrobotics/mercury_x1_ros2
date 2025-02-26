@@ -22,6 +22,7 @@ setup(
         'console_scripts': [
             'mercury_keyboard = mercury_x1_control.mercury_keyboard:main',
             'slider_control = mercury_x1_control.slider_control:main',
+            'slider_control_turing = mercury_x1_control.slider_control_turing:main',
         ],
     },
 )
