@@ -12,7 +12,7 @@ from sensor_msgs.msg import Image
 from rclpy.qos import QoSProfile
 from rclpy.qos import qos_profile_sensor_data
 
-from turn_on_wheeltec_robot.msg import Position as PositionMsg
+from turn_on_mercury_robot.msg import Position as PositionMsg
 from std_msgs.msg import String as StringMsg
 
 np.seterr(all='raise')  

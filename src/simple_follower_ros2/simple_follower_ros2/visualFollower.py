@@ -7,7 +7,7 @@ import time
 import numpy as np
 from sensor_msgs.msg import Joy, LaserScan
 from geometry_msgs.msg import Twist, Vector3
-from turn_on_wheeltec_robot.msg import Position as PositionMsg
+from turn_on_mercury_robot.msg import Position as PositionMsg
 from std_msgs.msg import String as StringMsg
 
 from rclpy.node import Node

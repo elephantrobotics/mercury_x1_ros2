@@ -36,7 +36,6 @@
         "/home/u20-ros2/mercury_x1_ros2/src/navigation2-galactic/nav2_voxel_grid/include/**",
         "/home/u20-ros2/mercury_x1_ros2/src/navigation2-galactic/nav2_waypoint_follower/include/**",
         "/home/u20-ros2/mercury_x1_ros2/src/ros2_astra_camera/astra_camera/include/**",
-        "/home/u20-ros2/mercury_x1_ros2/src/turn_on_wheeltec_robot/include/**",
         "/home/u20-ros2/mercury_x1_ros2/src/usb_cam/include/**",
         "/home/u20-ros2/mercury_x1_ros2/src/wheeltec_joy/include/**",
         "/home/u20-ros2/mercury_x1_ros2/src/wheeltec_lidar_ros2/LDlidar/ldlidar06/include/**",

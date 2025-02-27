@@ -18,7 +18,7 @@ import numpy as np
 from rclpy.node import Node
 from rclpy.qos import QoSProfile
 from sensor_msgs.msg import Joy, LaserScan
-from turn_on_wheeltec_robot.msg import Position as PositionMsg
+from turn_on_mercury_robot.msg import Position as PositionMsg
 from std_msgs.msg import String as StringMsg	
 class LaserTracker(Node):
 
