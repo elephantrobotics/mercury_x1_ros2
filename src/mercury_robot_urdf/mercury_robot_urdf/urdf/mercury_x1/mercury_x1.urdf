@@ -3,6 +3,8 @@
 	
 <xacro:property name="width" value=".2" />
 
+  <link name="base_footprint"/>       
+
   <!-- base -->
   <link name="base_link">
     <visual>
@@ -422,7 +424,7 @@
     <parent link="base_footprint"/>
     <child link="base_link"/>
     <origin xyz= " 0 0 0   " rpy = "0 0 0"/>
-</joint>
+  </joint>
 
 
 </robot>

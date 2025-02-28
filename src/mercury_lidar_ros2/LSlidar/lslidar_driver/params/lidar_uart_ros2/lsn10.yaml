@@ -7,7 +7,7 @@
     device_ip_difop: 192.168.1.102                          #雷达源IP
     msop_port: 2368                                         #雷达目的端口号
     difop_port: 2369                                        #雷达源端口号
-    lidar_name: N10                                         #雷达选择:M10 M10_P M10_PLUS M10_GPS N10
+    lidar_name: N10_P                                       #雷达选择:M10 M10_P M10_PLUS M10_GPS N10 N10_P
     ceil_increase: 0                                        #Lsn10时改值应设置为0
     angle_disable_min: 100.0                                  #单角度裁剪开始值
     angle_disable_max: 240.0                                  #单角度裁剪结束值
@@ -18,6 +18,6 @@
     use_gps_ts: false                                       #雷达是否使用GPS授时
     scan_topic: /scan                                       #设置激光数据topic名称
     interface_selection: serial                             #接口选择:net 为网口,serial 为串口。
-    serial_port_: /dev/wheeltec_laser                       #串口连接时的串口号
+    serial_port_: /dev/wheeltec_lidar                       #串口连接时的串口号
     
 #    pcap: /home/ls/work/2211/M10_P_gps.pcap                 #雷达是否使用pcap包读取功能
