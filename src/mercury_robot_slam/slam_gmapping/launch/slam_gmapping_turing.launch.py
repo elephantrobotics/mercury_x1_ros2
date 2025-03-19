@@ -15,7 +15,7 @@ def generate_launch_description():
     launch_dir = os.path.join(bringup_dir, 'launch')
 
     mercury_lidar = IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(os.path.join(launch_dir, 'mercury_lidar.launch.py')),
+            PythonLaunchDescriptionSource(os.path.join(launch_dir, 'mercury_lidar_turing.launch.py')),
     )
     mercury_robot = IncludeLaunchDescription(
             PythonLaunchDescriptionSource(os.path.join(launch_dir, 'turn_on_mercury_robot_turing.launch.py')),
