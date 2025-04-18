@@ -71,7 +71,6 @@ ament_target_dependencies(mercury_robot_node tf2_ros tf2 tf2_geometry_msgs rclcp
 
 install(PROGRAMS 
   scripts/cmd_vel_to_ackermann_drive.py
-  scripts/slider_control.py
   DESTINATION lib/${PROJECT_NAME})
 #install(PROGRAMS scripts/slider_control.py DESTINATION lib/${PROJECT_NAME})
 
