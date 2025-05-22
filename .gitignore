@@ -1,0 +1,6 @@
+.history/
+.vscode/
+build/
+install/
+log/
+__pycache__/
