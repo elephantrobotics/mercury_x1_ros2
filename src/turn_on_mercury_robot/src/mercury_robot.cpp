@@ -293,50 +293,39 @@ Function: The serial port reads and verifies the data sent by the lower computer
 
 bool turn_on_robot::Get_Sensor_Data()
 { 
-  short transition_16=0, j=0, Header_Pos=0, Tail_Pos=0; //Intermediate variable //中间变量
-  uint8_t Receive_Data_Pr[RECEIVE_DATA_SIZE]={0}; //Temporary variable to save the data of the lower machine //临时变量，保存下位机数据
-  Stm32_Serial.read(Receive_Data_Pr,sizeof (Receive_Data_Pr)); //Read the data sent by the lower computer through the serial port //通过串口读取下位机发送过来的数据
- //Record the position of the head and tail of the frame //记录帧头帧尾位置
-  for(j=0;j<24;j++)
-  {
-    if(Receive_Data_Pr[j]==FRAME_HEADER)
-    Header_Pos=j;
-    else if(Receive_Data_Pr[j]==FRAME_TAIL)
-    Tail_Pos=j;    
-  }
+  short transition_16=0; //Intermediate variable //中间变量
+  uint8_t check=0, error=1,Receive_Data_Pr[1]; //Temporary variable to save the data of the lower machine //临时变量，保存下位机数据
+  static int count; //Static variable for counting //静态变量，用于计数
+  Stm32_Serial.read(Receive_Data_Pr,sizeof(Receive_Data_Pr)); //Read the data sent by the lower computer through the serial port //通过串口读取下位机发送过来的数据
 
-  if(Tail_Pos==(Header_Pos+23))
-  {
-    //If the end of the frame is the last bit of the packet, copy the packet directly to receive_data.rx
-    //如果帧尾在数据包最后一位，直接复制数据包到Receive_Data.rx
-    // ROS_INFO("1----");
-    memcpy(Receive_Data.rx, Receive_Data_Pr, sizeof(Receive_Data_Pr));
-  }
-  else if(Header_Pos==(1+Tail_Pos))
-  {
-    //如果帧头在帧尾后面，纠正数据位置后复制数据包到Receive_Data.rx
-    // If the header is behind the end of the frame, copy the packet to receive_data.rx after correcting the data location
-    // ROS_INFO("2----");
-    for(j=0;j<24;j++)
-    Receive_Data.rx[j]=Receive_Data_Pr[(j+Header_Pos)%24];
-  }
-  else 
-  {
-    //其它情况则认为数据包有错误
-    // In other cases, the packet is considered to be faulty
-    // ROS_INFO("3----");
-    return false;
-  }    
+  /*//View the received raw data directly and debug it for use//直接查看接收到的原始数据，调试使用
+  ROS_INFO("%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x-%x",
+  Receive_Data_Pr[0],Receive_Data_Pr[1],Receive_Data_Pr[2],Receive_Data_Pr[3],Receive_Data_Pr[4],Receive_Data_Pr[5],Receive_Data_Pr[6],Receive_Data_Pr[7],
+  Receive_Data_Pr[8],Receive_Data_Pr[9],Receive_Data_Pr[10],Receive_Data_Pr[11],Receive_Data_Pr[12],Receive_Data_Pr[13],Receive_Data_Pr[14],Receive_Data_Pr[15],
+  Receive_Data_Pr[16],Receive_Data_Pr[17],Receive_Data_Pr[18],Receive_Data_Pr[19],Receive_Data_Pr[20],Receive_Data_Pr[21],Receive_Data_Pr[22],Receive_Data_Pr[23],
+  Receive_Data_Pr[24],Receive_Data_Pr[25]);
+  */  
+
+  Receive_Data.rx[count] = Receive_Data_Pr[0]; //Fill the array with serial data //串口数据填入数组
 
   Receive_Data.Frame_Header= Receive_Data.rx[0]; //The first part of the data is the frame header 0X7B //数据的第一位是帧头0X7B
-  Receive_Data.Frame_Tail= Receive_Data.rx[23];  //The last bit of data is frame tail 0X7D //数据的最后一位是帧尾0X7D
+  Receive_Data.Frame_Tail= Receive_Data.rx[RECEIVE_DATA_SIZE-1];  //The last bit of data is frame tail 0X7D //数据的最后一位是帧尾0X7D
 
-  if (Receive_Data.Frame_Header == FRAME_HEADER ) //Judge the frame header //判断帧头
+  if(Receive_Data_Pr[0] == FRAME_HEADER || count>0) //Ensure that the first data in the array is FRAME_HEADER //确保数组第一个数据为FRAME_HEADER
+    count++;
+  else 
+  	count=0;
+  if(count == RECEIVE_DATA_SIZE) //Verify the length of the packet //验证数据包的长度
   {
+    count=0;  //Prepare for the serial port data to be refill into the array //为串口数据重新填入数组做准备
     if (Receive_Data.Frame_Tail == FRAME_TAIL) //Judge the end of the frame //判断帧尾
-    { 
-      //BBC check passes or two packets are interlaced //BBC校验通过或者两组数据包交错
-      if (Receive_Data.rx[22] == Check_Sum(22,READ_DATA_CHECK)||(Header_Pos==(1+Tail_Pos))) 
+    {
+      check=Check_Sum(RECEIVE_DATA_SIZE-2,READ_DATA_CHECK);  //BCC check passes or two packets are interlaced //BCC校验通过或者两组数据包交错 
+      if(check == Receive_Data.rx[RECEIVE_DATA_SIZE-2])  
+      {
+        error=0;  //XOR bit check successful //异或位校验成功
+      }
+      if(error == 0)
       {
         Receive_Data.Flag_Stop=Receive_Data.rx[1]; //set aside //预留位
         //Get the speed of the moving chassis in the X direction //获取运动底盘X方向速度

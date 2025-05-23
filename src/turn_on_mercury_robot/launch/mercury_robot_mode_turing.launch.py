@@ -32,16 +32,6 @@ def generate_launch_description():
     )
     res.append(model_launch_arg)
 
-    rvizconfig_launch_arg = DeclareLaunchArgument(
-        name="rvizconfig",
-        default_value=os.path.join(
-            get_package_share_directory("mercury_rviz2"),
-            "rviz/mercury_x1_turing.rviz"
-        )
-    )
-    res.append(rvizconfig_launch_arg)
-
-
     robot_description = ParameterValue(Command(['xacro ', LaunchConfiguration('model')]),
                                        value_type=str)
 
@@ -68,14 +58,5 @@ def generate_launch_description():
             arguments=['0.08', '0', '0.25','0', '0','0','base_footprint','camera_link'],
     )
     res.append(camera_link_node)
-
-    rviz_node = Node(
-        name="rviz2",
-        package="rviz2",
-        executable="rviz2",
-        output="screen",
-        arguments=['-d', LaunchConfiguration("rvizconfig")],
-    )
-    res.append(rviz_node)
 
     return LaunchDescription(res)
