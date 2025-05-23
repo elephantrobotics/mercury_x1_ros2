@@ -100,7 +100,7 @@ speedBindings={
           }
 #获取键值函数
 speed = 0.2 #默认移动速度 m/s
-turn  = 1   #默认转向速度 rad/
+turn  = 0.5 #默认转向速度 rad/
 def get_key(settings):
     if os.name == 'nt':
         return msvcrt.getch().decode('utf-8')
