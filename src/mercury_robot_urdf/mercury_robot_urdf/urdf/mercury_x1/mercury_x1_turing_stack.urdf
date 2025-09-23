@@ -19,6 +19,11 @@
         </geometry>
         <origin xyz = "-0.04 0 0 " rpy = " 1.5708 0 0"/>
     </collision>
+    <inertial>
+      <mass value="47.2640" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <inertia ixx="0.001" iyy="0" izz="0" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
   </link>
 
   <!-- body -->
@@ -35,6 +40,11 @@
       </geometry>
       <origin xyz = "0 0 -0.11 " rpy = " 0 0 0"/>
     </collision>
+    <inertial>
+      <mass value="5.516" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <inertia ixx="0.001" iyy="0" izz="0" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
   </link>
 
   <!-- screen head -->
@@ -51,22 +61,72 @@
       </geometry>
       <origin xyz = "0 0 -0.1 " rpy = " 0 0 0"/>
     </collision>
+    <inertial>
+      <mass value="0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <inertia ixx="0.001" iyy="0" izz="0" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
   </link>
 
   <!-- camera -->
   <link name="link_eye">
     <visual>
       <geometry>
-       <mesh filename="package://mercury_robot_urdf/urdf/mercury_x1/head_eye.dae"/>
+       <mesh filename="package://mercury_robot_urdf/urdf/mercury_x1/dual_hole_camera.dae"/>
       </geometry>
-      <origin xyz = "0 0 -0.0 " rpy = " 0 0 -0.6981"/>
+      <origin xyz = "0 0 0.05 " rpy = " 0 1.5708 0"/>
     </visual>
     <collision>
      <geometry>
-       <mesh filename="package://mercury_robot_urdf/urdf/mercury_x1/head_eye.dae"/>
+       <mesh filename="package://mercury_robot_urdf/urdf/mercury_x1/dual_hole_camera.dae"/>
       </geometry>
       <origin xyz = "0 0 -0.1 " rpy = " 0 0 -0.6981"/>
     </collision>
+    <inertial>
+      <mass value="0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <inertia ixx="0.001" iyy="0" izz="0" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
+  </link>
+
+  <link name="link_left_camera">
+    <visual>
+      <geometry>
+       <mesh filename="package://mercury_robot_urdf/urdf/mercury_x1/left_camera.dae"/>
+      </geometry>
+      <origin xyz = "-0.008 0 0.0 " rpy = " 0 1.5708 3.14159"/>
+    </visual>
+    <collision>
+     <geometry>
+       <mesh filename="package://mercury_robot_urdf/urdf/mercury_x1/left_camera.dae"/>
+      </geometry>
+      <origin xyz = "-0.008 0 0.0 " rpy = " 0 1.5708 3.14159"/>
+    </collision>
+    <inertial>
+      <mass value="0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <inertia ixx="0.001" iyy="0" izz="0" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
+  </link>
+
+  <link name="link_right_camera">
+    <visual>
+      <geometry>
+       <mesh filename="package://mercury_robot_urdf/urdf/mercury_x1/right_camera.dae"/>
+      </geometry>
+      <origin xyz = "-0.008 0 0.0 " rpy = " 0 1.5708 3.14159"/>
+    </visual>
+    <collision>
+     <geometry>
+       <mesh filename="package://mercury_robot_urdf/urdf/mercury_x1/right_camera.dae"/>
+      </geometry>
+      <origin xyz = "-0.008 0 0.0 " rpy = " 0 1.5708 3.14159"/>
+    </collision>
+    <inertial>
+      <mass value="0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <inertia ixx="0.001" iyy="0" izz="0" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
   </link>
 
   <link name="link1_L">
@@ -82,6 +142,11 @@
       </geometry>
       <origin xyz = "0 0 -0.084 " rpy = " 0 0 0"/>
     </collision>
+    <inertial>
+      <mass value="0.784" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <inertia ixx="0.001" iyy="0" izz="0" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
   </link>
 
   <link name="link2_L">
@@ -97,6 +162,11 @@
       </geometry>
       <origin xyz = "0 0 0.0 " rpy = " 3.14159 0 -1.5708"/>
     </collision>
+    <inertial>
+      <mass value="0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <inertia ixx="0.001" iyy="0" izz="0" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
   </link>
 
   <link name="link3_L">
@@ -112,6 +182,11 @@
       </geometry>
       <origin xyz = "0 0 0.038 " rpy = " 0 0 0"/>
     </collision>
+    <inertial>
+      <mass value="0.824" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <inertia ixx="0.001" iyy="0" izz="0" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
   </link>
 
   <link name="link4_L">
@@ -127,6 +202,11 @@
       </geometry>
       <origin xyz = "0 0 0 " rpy = " 0 0 -1.5708"/>
     </collision>
+    <inertial>
+      <mass value="0.7" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <inertia ixx="0.001" iyy="0" izz="0" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
   </link>
 
   <link name="link5_L">
@@ -142,6 +222,11 @@
       </geometry>
       <origin xyz = "0 0 -0.069 " rpy = " 0 0 0"/>
     </collision>
+    <inertial>
+      <mass value="0.508" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <inertia ixx="0.001" iyy="0" izz="0" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
   </link>
 
   <link name="link6_L">
@@ -157,6 +242,11 @@
       </geometry>
       <origin xyz = "0 0 -0.025 " rpy = " 0 0 -1.5708"/>
     </collision>
+    <inertial>
+      <mass value="0.398" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <inertia ixx="0.001" iyy="0" izz="0" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
   </link>
 
   <link name="link7_L">
@@ -172,6 +262,11 @@
       </geometry>
       <origin xyz = "0 0 -0.002 " rpy = " 0 0 -1.5708"/>
     </collision>
+    <inertial>
+      <mass value="0.393" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <inertia ixx="0.001" iyy="0" izz="0" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
   </link>
 
   <link name="link1_R">
@@ -187,6 +282,11 @@
       </geometry>
       <origin xyz = "0 0 -0.084 " rpy = " 0 0 0"/>
     </collision>
+    <inertial>
+      <mass value="0.784" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <inertia ixx="0.001" iyy="0" izz="0" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
   </link>
 
  <link name="link2_R">
@@ -202,6 +302,11 @@
       </geometry>
       <origin xyz = "0 0 0 " rpy = " 3.14159 0 -1.5708"/>
     </collision>
+    <inertial>
+      <mass value="0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <inertia ixx="0.001" iyy="0" izz="0" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
   </link>
 
   <link name="link3_R">
@@ -217,6 +322,11 @@
       </geometry>
       <origin xyz = "0 0 0.038 " rpy = " 0 0 0"/>
     </collision>
+    <inertial>
+      <mass value="0.824" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <inertia ixx="0.001" iyy="0" izz="0" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
   </link>
 
   <link name="link4_R">
@@ -232,6 +342,11 @@
       </geometry>
       <origin xyz = "0 0 0 " rpy = " 0 0 -1.5708"/>
     </collision>
+    <inertial>
+      <mass value="0.7" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <inertia ixx="0.001" iyy="0" izz="0" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
   </link>
 
   <link name="link5_R">
@@ -247,6 +362,11 @@
       </geometry>
       <origin xyz = "0 0 -0.069 " rpy = " 0 0 0"/>
     </collision>
+    <inertial>
+      <mass value="0.508" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <inertia ixx="0.001" iyy="0" izz="0" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
   </link>
 
   <link name="link6_R">
@@ -262,6 +382,11 @@
       </geometry>
       <origin xyz = "0 0 -0.025 " rpy = " 0 0 -1.5708"/>
     </collision>
+    <inertial>
+      <mass value="0.398" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <inertia ixx="0.001" iyy="0" izz="0" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
   </link>
 
   <link name="link7_R">
@@ -277,6 +402,11 @@
       </geometry>
       <origin xyz = "0 0 -0.002 " rpy = " 0 0 -1.5708"/>
     </collision>
+    <inertial>
+      <mass value="0.393" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <inertia ixx="0.001" iyy="0" izz="0" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
   </link>
 
   <joint name="joint1_L" type="revolute">
@@ -400,6 +530,22 @@
     <parent link="link_head"/>
     <child link="link_eye"/>
     <origin xyz= " 0.03 0 -0.08   " rpy = "1.5708 0 0"/>  
+  </joint>
+
+  <joint name="left_camera" type="fixed">
+    <axis xyz=" 0 0 1"/>
+    <limit effort = "1000.0" lower = "-1.04" upper = "0" velocity = "0"/>
+    <parent link="link_eye"/>
+    <child link="link_left_camera"/>
+    <origin xyz= " 0.008 0 -0.027 " rpy = "0 0 0"/>  
+  </joint>
+
+  <joint name="right_camera" type="fixed">
+    <axis xyz=" 0 0 1"/>
+    <limit effort = "1000.0" lower = "-1.04" upper = "0" velocity = "0"/>
+    <parent link="link_eye"/>
+    <child link="link_right_camera"/>
+    <origin xyz= " 0.008 0 0.033 " rpy = "0 0 0"/>  
   </joint>
 
   <joint name="head" type="revolute">
