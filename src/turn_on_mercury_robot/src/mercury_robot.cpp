@@ -383,16 +383,17 @@ void turn_on_robot::Control()
   last_time = rclcpp::Node::now();
   while(rclcpp::ok())
   {
-    current_time = rclcpp::Node::now();
-    //Retrieves time interval, which is used to integrate velocity to obtain displacement (mileage) 
-    //获取时间间隔，用于积分速度获得位移(里程)
-    Sampling_Time = (current_time - last_time).seconds(); 
 
     //The serial port reads and verifies the data sent by the lower computer, and then the data is converted to international units
     //通过串口读取并校验下位机发送过来的数据，然后数据转换为国际单位
     if (true == Get_Sensor_Data()) 
-                                   
     {
+
+      current_time = rclcpp::Node::now();
+      //Retrieves time interval, which is used to integrate velocity to obtain displacement (mileage)
+      //获取时间间隔，用于积分速度获得位移(里程)
+      Sampling_Time = (current_time - last_time).seconds();
+
       //Calculate the displacement in the X direction, unit: m //计算X方向的位移，单位：m
       Robot_Pos.X+=(Robot_Vel.X * cos(Robot_Pos.Z) - Robot_Vel.Y * sin(Robot_Pos.Z)) * Sampling_Time;
       //Calculate the displacement in the Y direction, unit: m //计算Y方向的位移，单位：m 
@@ -409,6 +410,8 @@ void turn_on_robot::Control()
       Publish_Odom();
 
       rclcpp::spin_some(this->get_node_base_interface());
+
+      last_time = current_time;
 
     }
 
